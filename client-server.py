@@ -2,12 +2,12 @@ import socket
 import func
 from threading import Thread 
 
-choice=raw_input("1.HOST A CHAT\n2.JOIN AN EXISTING CHAT:\n")
+choice=raw_input("Connect to a person or start a server 1|2 :\n")
 def sendo(s):
-	data = raw_input("")
+	data = raw_input("\nYou>>")
 	while True:
 		s.sendall(data)
-		data = raw_input("")
+		data = raw_input("\nYou>>")
 		if(data == 'q'):
 			s.close()
 			exit()
@@ -31,7 +31,7 @@ if choice == '1':
 	print ("Server IP | Port are %s | %d" %(host,port))
 	s.bind((host,port))
 	s.listen(1)
-	print 'Listening ...'
+	print 'Connecting ...'
 	while True:
     	# establish a connection
 		clientsocket,addr = s.accept()      
