@@ -1,9 +1,11 @@
 import socket
+import func
+
 s= socket.socket()
-host = '127.0.0.1'
+host = raw_input("Enter Server's IP")
 port = 5000
 s.connect((host, port))
-tm='a' 
+
 while tm != 'q':
 	tm = s.recv(1024)
 	if tm:

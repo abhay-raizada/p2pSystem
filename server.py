@@ -1,8 +1,10 @@
 import socket
+import func
 
 s=socket.socket()
-host = '127.0.0.1'
-port = 5000
+host = func.return_ip()
+port = 5005
+print ("Server IP | Port are %s | %d" %(host,port))
 s.bind((host,port))
 s.listen(5)
 print 'Connecting ...'
