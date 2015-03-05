@@ -45,15 +45,14 @@ def recvBroadcast(s): # RECIEVING IP
 s1 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s1.bind(('', 0))
 s1.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-# CREATING A UDP SOCKET TO RECIEVE
+# CREATING A UDO SOCKET TO RECIEVE
 s2 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s2.bind(('<broadcast>', 6000))
 s2.setblocking(0)
 host = func.return_ip()
 # THREAD TO ALWAYS BROADCAST IP AND ALWAYS SEARCH FOR BROADCASTED IPs
 udpThreadSend= Thread(target=broadcast,args=(s1,host,))	
-udpThreadRecv= Thread(target=recvBroadcast,args=(s2,))	
-#Socket for a tcp connection		
+udpThreadRecv= Thread(target=recvBroadcast,args=(s2,))			
 s=socket.socket()
 
 port = 6482
