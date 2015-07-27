@@ -39,7 +39,6 @@ def recvgrp(L):
 				print i[1][0],">>",data
 		
 
-
 if choice == '1':
 	s=socket.socket()
 	host = func.return_ip()

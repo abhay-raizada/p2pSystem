@@ -3,7 +3,8 @@ from threading import Thread
 import retrieveIP
 from client import Client
 from server import Server
-PORT=5008 #Specifying the port on which this chat client will operate
+
+PORT=5020 #Specifying the port on which this chat client will operate
 NAME=raw_input("Enter Your Name\n")
 SOCK=socket.socket()
 choice=raw_input("1.JOIN AN EXISTING CHAT:\n2.HOST A CHAT\n") 
