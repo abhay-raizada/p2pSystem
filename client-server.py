@@ -17,7 +17,7 @@ def recvo(s):
 		data=s.recv(1024)
 		if data:
 			print host + ">>"+data
-		if data == 'q':
+		if data == 'q':	
 			s.close()
 			exit()
 
@@ -62,7 +62,7 @@ if choice == '1':
 			t2.start()
     		
 		except:
-			print "FUCK\n"
+			print "Error\n"
 			#clientsocket.close()
 if choice == '2':
 	s= socket.socket()
@@ -99,7 +99,7 @@ if choice =='3':
 			tt2.start()
     		
 		except:
-			print "FUCK\n"
+			print "Error\n"
 			#clientsocket.close()
 	
 	#s.close()
