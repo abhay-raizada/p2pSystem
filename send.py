@@ -2,11 +2,11 @@ import socket
 from threading import Thread
 class Send(Thread):
 	def __init__(self,clientSocket=None,server=False,serverList=[]):
-		self.Csock=clientSocket
-		self.data=''
+		self.Csock=clientSocket # CSock because this would be the socket of client.
+		#self.data=''
 		self.running=True
-		self.server=server
-		self.serverList=serverList
+		self.server=server # boolean to check wether server has initialized this class
+		self.serverList=serverList # This is the servers client List
 		Thread.__init__(self)
 
 	def Send(self,msg):

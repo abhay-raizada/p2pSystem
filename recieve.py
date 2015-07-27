@@ -1,23 +1,40 @@
 import socket
 from threading import Thread
 class Recieve(Thread):
-	def __init__(self,s):
-		self.SOCK=s
+	def __init__(self,clientSocket=None,isServer=False,ServerList=[]):
+		self.isServer=isServer
+		self.CSOCK=clientSocket
+		self.ServerList=ServerList
 		self.running=True
 		Thread.__init__(self)
 	def recieve(self):
-		temp=self.SOCK.recv(1024)
+		temp=self.CSOCK.recv(1024)
+		message=[]
 		if temp:
-			return temp
+			message.append(temp)
+			return message
 		else:
 			return 0
 	def displayMessage(self,message):
-		print ">>"+message+"\n"
+		for i in message:
+			print ">>"+i + "\n"
 
+	def RecvServer(self):
+		message=[]
+		for i in self.ServerList:
+			temp=i.recv(1024)
+			if(temp):
+				message.append(temp)
+		return message
 	def run(self):
 		while(self.running):
-			message = self.recieve()
-			if(message):
+			if not self.isServer:
+				message = self.recieve()
+			else :
+				#print "Server Gets Message"
+				message = self.RecvServer()
+			if(message !="quit"):
+
 				self.displayMessage(message)
-			elif(message=="quit"):
+			else:
 				self.running=False
